@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return      void
  */
 function edd_free_downloads_display_inline() {
-	echo '<div id="edd-free-downloads-modal" class="edd-free-downloads-hidden">';
+	echo '<div id="edd-free-downloads-modal" class="edd-free-downloads-modal edd-free-downloads-hidden edd-free-downloads-animated" aria-hidden="true" tabindex="-1">';
 
 	ob_start();
 	edd_get_template_part( 'download', 'modal' );

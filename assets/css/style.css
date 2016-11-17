@@ -1,69 +1,195 @@
 /** Modal CSS **/
-#edd-free-downloads-modal label {
-    font-weight: bold;
-    display: block;
-    position: relative;
-    line-height: 100%;
-    font-size: 95%;
-    margin: 0 0 5px;
+.edd-free-downloads-modal label {
+	display: block;
+	position: relative;
+	line-height: 100%;
+	font-size: 95%;
+	margin: 0 0 5px;
 }
 
-#edd-free-downloads-modal label.edd-free-downloads-checkbox-label {
-    display: inline-block;
-    padding-left: 5px;
+.edd-free-downloads-modal label.edd-free-downloads-checkbox-label {
+	display: inline-block;
+	padding-left: 5px;
 }
 
-#edd-free-downloads-modal span.edd-free-downloads-required {
-    color: #B94A48;
-    display: inline;
+.edd-free-downloads-modal span.edd-free-downloads-required {
+	color: #b94a48;
+	display: inline;
 }
 
-#edd-free-downloads-modal input[type='text'],
-#edd-free-downloads-modal input[type='password'] {
-    width: 100%;
+.edd-free-downloads-modal input[type='text'],
+.edd-free-downloads-modal input[type='password'] {
+	width: 100%;
 }
 
-#edd-free-downloads-modal button {
-    width: 100%;
+.edd-free-downloads-modal button {
+	width: 100%;
 }
 
-.edd-free-downloads-hidden {
-    display: none;
+.edd-free-downloads-modal[aria-hidden="true"] {
+	display: none;
+	opacity: 0;
 }
 
-.edd-free-downloads-mobile {
-    padding: 25px;
+.edd-free-downloads-modal {
+	background-color: rgba(43, 46, 56, 0.9);
+	opacity: 1;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+	z-index: 2;
+	-webkit-animation-name: fade;
+	animation-name: fade;
+}
+
+.edd-free-downloads-modal-overlay {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: calc(100% - 24px); /* So that overlay doesn't block the scrollbar. Scrolbar width is usually 17px but let's play safe here. */
+	height: 100%;
+	z-index: 100001;
+}
+
+.edd-free-downloads-modal-content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.edd-free-downloads-modal-wrapper {
+	background-color: #fff;
+	margin: 8% auto 2em;
+	padding: 2em;
+	position: relative;
+	z-index: 100001;
+	text-align: left;
+	vertical-align: middle;
+	max-width: 92%;
+	width: 25em;
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown;
+}
+
+button.edd-free-downloads-modal-close {
+	border-radius: 50%;
+	display: block;
+	padding: 0;
+	position: absolute;
+	top: -0.75em;
+	right: -0.75em;
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.edd-free-downloads-disable-scroll {
+	overflow: hidden;
+}
+
+/* Animation. */
+.edd-free-downloads-animated {
+	-webkit-animation-duration: 0.3s;
+	animation-duration: 0.3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	animation-name: fade;
+}
+
+@-webkit-keyframes fadeInDown {
+	from {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -20%, 0);
+		transform: translate3d(0, -20%, 0);
+	}
+
+	to {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -20%, 0);
+		transform: translate3d(0, -20%, 0);
+}
+
+	to {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none;
+	}
+}
+
+.fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown;
 }
 
 .edd-free-download-cancel {
-    margin-top: 25px;
+	margin-top: 25px;
 }
 
 /** Modal Errors **/
 .edd-free-download-errors {
-    border-radius: 2px;
-    border: 1px solid #E6DB55;
-    margin: 0 0 21px;
-    background: #FFFFE0;
-    color: #333;
-    display: none;
+	border-radius: 2px;
+	border: 1px solid #e6db55;
+	margin: 0 0 21px;
+	background: #ffffe0;
+	color: #333;
+	display: none;
 }
 
 .edd-free-download-errors p {
-    margin: 0;
-    padding: 10px;
-    display: none;
+	margin: 0;
+	padding: 10px;
+	display: none;
 }
 
 .edd-free-downloads-loader {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 /** Download button shouldn't ever disappear **/
 .edd-free-download-single {
-    display: inline-block !important;
+	display: inline-block !important;
 }
 
 .edd-free-downloads-direct-download {
-    text-align: center;
+	text-align: center;
 }
