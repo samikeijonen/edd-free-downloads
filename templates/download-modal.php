@@ -125,7 +125,9 @@ $label = edd_get_option( 'edd_free_downloads_modal_button_label', __( 'Download 
 			</form>
 			<?php if ( edd_get_option( 'edd_free_downloads_close_button' ) ) : ?>
 				<button class="edd-free-downloads-modal-close" type="button" data-a11y-dialog-hide aria-label="<?php _e( 'Close', 'edd-free-downloads' ) ?>">
-					<span class="edd-free-downloads-modal-icon" aria-hidden="true">&times;</span>
+					<svg class="edd-free-downloads-modal-close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28">
+						<path d="M20.28 20.656c0 .39-.155.78-.437 1.062l-2.125 2.125c-.28.28-.672.438-1.062.438s-.78-.155-1.062-.437L11 19.25l-4.594 4.593c-.28.28-.672.438-1.062.438s-.78-.155-1.062-.437l-2.125-2.125c-.28-.28-.438-.672-.438-1.062s.155-.78.437-1.062L6.75 15l-4.593-4.594c-.28-.28-.438-.672-.438-1.062s.155-.78.437-1.062l2.125-2.125c.28-.28.672-.438 1.062-.438s.78.155 1.062.437L11 10.75l4.594-4.593c.28-.28.672-.438 1.062-.438s.78.155 1.062.437l2.125 2.125c.28.28.438.672.438 1.062s-.155.78-.437 1.062L15.25 15l4.593 4.594c.28.28.438.672.438 1.062z"/>
+					</svg>
 				</button>
 			<?php endif; ?>
 		</div>

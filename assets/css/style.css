@@ -71,7 +71,7 @@
 	margin: 8% auto 2em;
 	padding: 2em;
 	position: relative;
-	z-index: 100001;
+	z-index: 100002;
 	text-align: left;
 	vertical-align: middle;
 	max-width: 92%;
@@ -89,6 +89,16 @@ button.edd-free-downloads-modal-close {
 	right: -0.75em;
 	width: 1.5em;
 	height: 1.5em;
+}
+
+.edd-free-downloads-modal-close-icon {
+	display: inline-block;
+	fill: currentColor;
+	position: absolute;
+	top: 0.375em;
+	left: 0.375em;
+	width: 0.75em;
+	height: 0.75em;
 }
 
 .edd-free-downloads-disable-scroll {
