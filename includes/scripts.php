@@ -41,6 +41,7 @@ function edd_free_downloads_scripts() {
 	$close_button            = ( $close_button ? 'box' : 'overlay' );
 	$download_label          = edd_get_option( 'edd_free_downloads_button_label', __( 'Download Now', 'edd-free-downloads' ) );
 	$guest_checkout_disabled = edd_no_guest_checkout();
+	$on_complete_handler     = edd_get_option( 'edd_free_downloads_on_complete', 'default' );
 
 	wp_localize_script( 'edd-free-downloads', 'edd_free_downloads_vars', array(
 		'close_button'            => $close_button,
@@ -59,6 +60,8 @@ function edd_free_downloads_scripts() {
 		'success_page'            => edd_get_success_page_uri(),
 		'guest_checkout_disabled' => $guest_checkout_disabled,
 		'email_verification'      => edd_free_downloads_verify_email(),
+		'on_complete_handler'     => $on_complete_handler,
+		'on_complete_delay'       => apply_filters( 'edd_free_downloads_on_complete_handler_delay', 2000 ),
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'edd_free_downloads_scripts' );
