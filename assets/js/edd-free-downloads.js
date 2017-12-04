@@ -321,7 +321,8 @@ jQuery(document.body).ready(function ($) {
                                 $('.edd-free-download-submit span').html(edd_free_downloads_vars.download_loading);
                                 $('.edd-free-download-submit span').append('<i class="edd-icon-spinner edd-icon-spin"></i>');
                                 $('.edd-free-download-submit').attr('disabled', 'disabled');
-                                eddFreeDownloadCloseModal();
+                                // Closing the modal causes Firefox to have nothing to submit. Therefore this is being commented out.
+                                // eddFreeDownloadCloseModal();
                             }
                         } else {
                             $('.edd-free-download-errors').css('display', 'block');
