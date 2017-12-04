@@ -321,7 +321,7 @@ jQuery(document.body).ready(function ($) {
                                 $('.edd-free-download-submit span').html(edd_free_downloads_vars.download_loading);
                                 $('.edd-free-download-submit span').append('<i class="edd-icon-spinner edd-icon-spin"></i>');
                                 $('.edd-free-download-submit').attr('disabled', 'disabled');
-                                // If the on complete handler is set to "default" or "redirect", don't close the Modal. Otherwise, close it. This prevent it from failing to submit the form.
+                                // If the on complete handler is set to "default" or "redirect", don't close the Modal. Otherwise, close it. This prevents it from failing to submit the form.
                                 if ( 'default' != edd_free_downloads_vars.on_complete_handler && 'redirect' != edd_free_downloads_vars.on_complete_handler ) {
                                     setTimeout(function(){
                                         eddFreeDownloadCloseModal();
