@@ -8,10 +8,11 @@ jQuery(document.body).ready(function ($) {
      * This function controls the closing of the modal by either
      * clicking the close 'x', outside the modal, or pressing the escape key.
      */
-    function eddFreeDownloadCloseModal() {
+    function eddFreeDownloadCloseModal( edd_download_id ) {
         $( '.edd-free-downloads-modal-wrapper' ).fadeOut( 250 ); // Hiding the modal wrapper again
         $( '#edd-free-downloads-modal' ).hide().html('');
-        $( 'body' ).removeClass( 'edd-frozen' );
+		$( 'body' ).removeClass( 'edd-frozen' );
+		$( 'a[data-download-id="' + edd_download_id + '"]').focus();
     }
 
     if ($('input[name="edd_options[price_id][]"]').length > 0) {
@@ -178,7 +179,7 @@ jQuery(document.body).ready(function ($) {
 
 
                     $( '.edd-free-downloads-modal-wrapper .edd-free-downloads-modal-close' ).on( 'click', function() {
-                        eddFreeDownloadCloseModal();
+                        eddFreeDownloadCloseModal( edd_download_id );
                     } );
 
                     modal_container.find('input').first().focus();
@@ -324,7 +325,7 @@ jQuery(document.body).ready(function ($) {
                                 // If the on complete handler is set to "default" or "redirect", don't close the Modal. Otherwise, close it. This prevents it from failing to submit the form.
                                 if ( 'default' != edd_free_downloads_vars.on_complete_handler && 'redirect' != edd_free_downloads_vars.on_complete_handler ) {
                                     setTimeout(function(){
-                                        eddFreeDownloadCloseModal();
+                                        eddFreeDownloadCloseModal( edd_download_id );
                                     }, edd_free_downloads_vars.on_complete_delay);
                                 }
                             }
@@ -353,7 +354,7 @@ jQuery(document.body).ready(function ($) {
                      * and hide the wrapper again
                      */
                     $( '#edd-free-downloads-modal' ).parent('.edd-free-downloads-modal-wrapper').on( 'click', function() {
-                        eddFreeDownloadCloseModal();
+                        eddFreeDownloadCloseModal( edd_download_id );
                     });
 
                     /**
@@ -371,10 +372,35 @@ jQuery(document.body).ready(function ($) {
                      * Allowing for pressing escape key to close modal
                      */
                     body.on( 'keyup', function( e ) {
-                        if ( 27 === e.keyCode ) {
-                            eddFreeDownloadCloseModal();
+                        if ( 27 === e.keyCode && $( 'body' ).hasClass( 'edd-frozen' ) ) {
+                            eddFreeDownloadCloseModal( edd_download_id );
                         }
-                    });
+					});
+
+					/**
+                     * Keep keyboard focus inside the modal
+                     */
+					if ( $( 'body' ).hasClass( 'edd-frozen' ) ) {
+						var focusableElements     = $( '#edd-free-downloads-modal' ).find( 'select, input, textarea, button, a' ).filter( ':visible' );
+						var firstFocusableElement = focusableElements.first();
+						var lastFocusableElement  = focusableElements.last();
+
+						// Redirect last Tab to the first focusable element.
+						lastFocusableElement.on( 'keydown', function ( e ) {
+							if ( ( e.keyCode === 9 && ! e.shiftKey ) ) {
+								e.preventDefault();
+								firstFocusableElement.focus();
+							}
+						});
+
+						// Redirect first Shift+Tab to the last focusable element.
+						firstFocusableElement.on( 'keydown', function ( e ) {
+							if ( ( e.keyCode === 9 && e.shiftKey ) ) {
+								e.preventDefault();
+								lastFocusableElement.focus();
+							}
+						});
+					}
 
                 } // End success.
 
@@ -420,7 +446,7 @@ jQuery(document.body).ready(function ($) {
         }
 
         if (! isMobile.any) {
-            eddFreeDownloadCloseModal();
+            eddFreeDownloadCloseModal( edd_download_id );
         }
 
         window.location = redirect + 'edd_action=free_downloads_process_download&download_id=' + download_id + '&price_ids=' + price_ids;

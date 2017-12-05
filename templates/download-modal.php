@@ -34,13 +34,16 @@ if ( isset( $_GET['download_id'] ) && ! empty( $_GET['download_id'] ) ) {
 $price_ids = isset( $_GET['price_ids'] ) ? array_map( 'absint', $_GET['price_ids'] ) : array();
 ?>
 <?php if ( edd_get_option( 'edd_free_downloads_close_button', false ) ) : ?>
-<span class="dashicons dashicons-no-alt edd-free-downloads-modal-close"></span>
+<h2 class="edd-free-downloads-modal-title screen-reader-text" id="edd-free-downloads-modal-title"><?php esc_html_e( 'Download items', 'edd-free-downloads' ); ?></h2>
+<button class="edd-free-downloads-modal-close" aria-label="<?php esc_attr_e( 'Close', 'edd-free-downloads' ); ?>"><svg class="edd-free-downloads-icon" width="32" height="32" viewBox="0 0 32 32">
+<path d="M31.708 25.708L22 16l9.708-9.708c.105-.105.18-.227.23-.357.132-.356.056-.77-.23-1.057L27.122.292c-.286-.286-.702-.36-1.057-.23-.13.05-.252.125-.357.23L16 9.998 6.292.29C6.187.188 6.065.11 5.935.064c-.356-.133-.77-.057-1.057.23L.292 4.877c-.286.286-.36.702-.23 1.057.05.13.125.252.23.357L10 16 .292 25.708c-.104.105-.18.227-.23.357-.132.355-.056.77.23 1.057l4.586 4.586c.286.286.702.36 1.057.23.13-.05.252-.125.357-.23L16 22l9.708 9.708c.105.105.227.18.357.23.356.132.77.056 1.057-.23l4.586-4.586c.286-.286.362-.702.23-1.057-.05-.13-.125-.252-.23-.357z"/>
+</svg></button>
 <?php endif; ?>
 <form id="edd_free_download_form" method="post">
 	<?php do_action( 'edd_free_downloads_before_modal_form', $post ); ?>
 	<p>
 		<label for="edd_free_download_email" class="edd-free-downloads-label"><?php esc_html_e( 'Email Address', 'edd-free-downloads' ); ?> <span class="edd-free-downloads-required">*</span></label>
-		<input type="text" name="edd_free_download_email" id="edd_free_download_email" class="edd-free-download-field" placeholder="<?php _e( 'Email Address', 'edd-free-downloads' ); ?>" value="<?php echo $email; ?>" tabindex="-1" />
+		<input type="text" name="edd_free_download_email" id="edd_free_download_email" class="edd-free-download-field" placeholder="<?php _e( 'Email Address', 'edd-free-downloads' ); ?>" value="<?php echo $email; ?>" />
 	</p>
 
 	<?php if ( edd_get_option( 'edd_free_downloads_get_name', false ) ) : ?>

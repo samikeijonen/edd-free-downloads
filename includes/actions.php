@@ -392,6 +392,6 @@ add_action( 'wp_ajax_nopriv_edd_free_downloads_get_file_path', 'edd_free_downloa
  * javascript targeting of the inner modal elements
  */
 function edd_free_downloads_add_modal_wrapper() {
-	echo '<div class="edd-free-downloads-modal-wrapper edd-free-downloads"><div id="edd-free-downloads-modal" style="display:none"></div></div>';
+	echo '<div class="edd-free-downloads-modal-wrapper edd-free-downloads"><div class="edd-free-downloads-modal" id="edd-free-downloads-modal" style="display:none" role="dialog" aria-labelledby="edd-free-downloads-modal-title"></div></div>';
 }
 add_action( 'wp_footer', 'edd_free_downloads_add_modal_wrapper' );
