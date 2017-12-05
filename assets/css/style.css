@@ -76,11 +76,11 @@ form#edd_free_download_form {
 }
 
 .edd-free-downloads-modal .edd-free-downloads-modal-close {
-	background-color: #222;
+	background-color: inherit;
 	border: 0;
 	border-radius: 50%;
 	box-shadow: none;
-	color: #fff;
+	color: inherit;
 	padding: 0;
     position: absolute;
     top: -15px;
@@ -93,8 +93,7 @@ form#edd_free_download_form {
 .edd-free-downloads-modal .edd-free-downloads-modal-close:hover,
 .edd-free-downloads-modal .edd-free-downloads-modal-close:focus,
 .edd-free-downloads-modal .edd-free-downloads-modal-close:active {
-	background-color: #767676;
-	color: #fff;
+	color: #767676;
     -webkit-transition: color 0.5s ease;
 	-moz-transition: color 0.5s ease;
 	transition: color 0.5s ease;
